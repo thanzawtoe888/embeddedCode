@@ -24,8 +24,10 @@ void HAL_UART_MspInit(UART_HandleTypeDef *huart)
 		//Here we are going to do the low level inits. of the USART2 peripheral
 	  //peripheral အလုပ်မလုပ် ရင် ပထမဆုံး debug လုပ်ရမည့်နေရာ ***
 	
-	  //1. enable the clock for the USART2 peripheral
+	
+	  //1. enable the clock for the USART2 peripheral as well as GPIOA Peripheral
 	  __HAL_RCC_USART2_CLK_ENABLE();
+	  __HAL_RCC_GPIOA_CLK_ENABLE();
 	
 	  //2. Do the pin muxing configurations
 	  gpio_uart.Pin = GPIO_PIN_2;
@@ -35,12 +37,10 @@ void HAL_UART_MspInit(UART_HandleTypeDef *huart)
 	  gpio_uart.Alternate = GPIO_AF7_USART2; //UART2 TX
 	  HAL_GPIO_Init(GPIOA, &gpio_uart);
 	
-	  gpio_uart.Pin = GPIO_PIN_3;
+	  gpio_uart.Pin = GPIO_PIN_3; //UART2 RX
   	HAL_GPIO_Init(GPIOA, &gpio_uart);
-	  
-	
-	  
-	  
 	
 	  //3. Enable the IRQ and set up the priority (NVIC setting)
+	  HAL_NVIC_EnableIRQ(USART2_IRQn);
+		HAL_NVIC_SetPriority(USART2_IRQn,15,0);
 }
