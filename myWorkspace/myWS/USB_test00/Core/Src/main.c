@@ -64,10 +64,9 @@ static void MX_I2C1_Init(void);
 /* USER CODE BEGIN 0 */
 void USBRxHandler(uint8_t* buf, uint16_t len)
 {
-	if (strncmp(buf,"Hi",len) ==0){
-		CDC_Transmit_FS("Welcome\r\n",9);
-	}
-	return;
+	USBRXDataBuffer = buf;
+	USBRXDataLength = len;
+	USBRXDataReady = 1;
 }
 /* USER CODE END 0 */
 
@@ -84,7 +83,7 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
+   HAL_Init();
 
   /* USER CODE BEGIN Init */
 
@@ -111,7 +110,15 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-		CDC_Transmit_FS("HELLO\r\n", 7);
+		if (USBRXDataReady == 1)
+		{
+			//You have a new data ready to process
+			if (strncmp(USBRXDataBuffer,"Hi",USBRXDataLength)==0)
+				{
+				CDC_Transmit_FS("Welcome\r\n",9);
+		    }
+			USBRXDataReady=0;
+	  }
     HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_12);
 		HAL_Delay(1000);
     /* USER CODE BEGIN 3 */

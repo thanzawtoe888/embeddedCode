@@ -3,7 +3,7 @@
 <title>Static Call Graph - [USB_test00\USB_test00.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image USB_test00\USB_test00.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed Jan 24 01:09:32 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed Jan 24 14:55:23 2024
 <BR><P>
 <H3>Maximum Stack Usage =        176 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -542,10 +542,10 @@ Global Symbols
 
 <P><STRONG><a name="[145]"></a>_ll_udiv</STRONG> (Thumb, 238 bytes, Stack size 48 bytes, lludivv7m.o(.text), UNUSED)
 
-<P><STRONG><a name="[11e]"></a>strncmp</STRONG> (Thumb, 150 bytes, Stack size 16 bytes, strncmp.o(.text))
+<P><STRONG><a name="[120]"></a>strncmp</STRONG> (Thumb, 150 bytes, Stack size 16 bytes, strncmp.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = strncmp
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBRxHandler
+<BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[d4]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text))
@@ -634,7 +634,6 @@ Global Symbols
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CDC_SetTxBuffer
 </UL>
 <BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBRxHandler
 </UL>
 
 <P><STRONG><a name="[a]"></a>DebugMon_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.DebugMon_Handler))
@@ -1585,13 +1584,8 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CDC_Init
 </UL>
 
-<P><STRONG><a name="[8e]"></a>USBRxHandler</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, main.o(i.USBRxHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = USBRxHandler &rArr; CDC_Transmit_FS &rArr; USBD_CDC_TransmitPacket &rArr; USBD_LL_Transmit &rArr; HAL_PCD_EP_Transmit &rArr; USB_EPStartXfer &rArr; USB_WritePacket
-</UL>
-<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDC_Transmit_FS
-<LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncmp
-</UL>
-<BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDC_Receive_FS
+<P><STRONG><a name="[8e]"></a>USBRxHandler</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, main.o(i.USBRxHandler))
+<BR><BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDC_Receive_FS
 </UL>
 
 <P><STRONG><a name="[b0]"></a>USB_ActivateEndpoint</STRONG> (Thumb, 122 bytes, Stack size 16 bytes, stm32f4xx_ll_usb.o(i.USB_ActivateEndpoint))
@@ -1607,7 +1601,7 @@ Global Symbols
 <P><STRONG><a name="[d5]"></a>USB_CoreInit</STRONG> (Thumb, 112 bytes, Stack size 16 bytes, stm32f4xx_ll_usb.o(i.USB_CoreInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = USB_CoreInit &rArr; USB_CoreReset
 </UL>
-<BR>[Calls]<UL><LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_CoreReset
+<BR>[Calls]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_CoreReset
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_Init
 </UL>
@@ -1630,7 +1624,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = USB_DevInit &rArr; USB_FlushTxFifo
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_FlushTxFifo
-<LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_FlushRxFifo
+<LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_FlushRxFifo
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_Init
 </UL>
@@ -1681,7 +1675,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_Start
 </UL>
 
-<P><STRONG><a name="[120]"></a>USB_FlushRxFifo</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, stm32f4xx_ll_usb.o(i.USB_FlushRxFifo))
+<P><STRONG><a name="[11f]"></a>USB_FlushRxFifo</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, stm32f4xx_ll_usb.o(i.USB_FlushRxFifo))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = USB_FlushRxFifo
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_DevInit
@@ -1760,7 +1754,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
 </UL>
-<P><STRONG><a name="[82]"></a>main</STRONG> (Thumb, 94 bytes, Stack size 0 bytes, main.o(i.main))
+<P><STRONG><a name="[82]"></a>main</STRONG> (Thumb, 116 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = main &rArr; SystemClock_Config &rArr; HAL_RCC_ClockConfig &rArr; HAL_RCC_GetSysClockFreq &rArr; __aeabi_uldivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USB_DEVICE_Init
@@ -1772,6 +1766,7 @@ Global Symbols
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI1_Init
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
+<LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncmp
 </UL>
 <BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
@@ -1828,7 +1823,7 @@ Local Symbols
 <BR>[Address Reference Count : 1]<UL><LI> usbd_cdc_if.o(.data)
 </UL>
 <P><STRONG><a name="[6a]"></a>CDC_Receive_FS</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, usbd_cdc_if.o(i.CDC_Receive_FS))
-<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = CDC_Receive_FS &rArr; USBRxHandler &rArr; CDC_Transmit_FS &rArr; USBD_CDC_TransmitPacket &rArr; USBD_LL_Transmit &rArr; HAL_PCD_EP_Transmit &rArr; USB_EPStartXfer &rArr; USB_WritePacket
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = CDC_Receive_FS &rArr; USBD_CDC_ReceivePacket &rArr; USBD_LL_PrepareReceive &rArr; HAL_PCD_EP_Receive &rArr; USB_EPStartXfer &rArr; USB_WritePacket
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CDC_SetRxBuffer
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CDC_ReceivePacket
@@ -1856,7 +1851,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_IRQHandler
 </UL>
 
-<P><STRONG><a name="[11f]"></a>USB_CoreReset</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, stm32f4xx_ll_usb.o(i.USB_CoreReset))
+<P><STRONG><a name="[11e]"></a>USB_CoreReset</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, stm32f4xx_ll_usb.o(i.USB_CoreReset))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = USB_CoreReset
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_CoreInit
